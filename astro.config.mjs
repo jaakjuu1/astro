@@ -12,6 +12,7 @@ const {
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://astro-inky-gamma.vercel.app",
   image: {
     domains: [PUBLIC_WP_URL]
   },
