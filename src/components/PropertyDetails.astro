@@ -1,0 +1,30 @@
+---
+import numeral from "numeral";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBed, faBath } from "@fortawesome/free-solid-svg-icons";
+numeral.localeData().delimiters.thousands = " ";
+type Props = {
+  price: string;
+  bedrooms: string;
+  bathrooms: string;
+  postId: number;
+};
+const { price, bedrooms, bathrooms, postId } = Astro.props;
+const priceFormatted = numeral(price).format("0,0.00").replace(/\./g, ",");
+---
+
+<div class="bg-event-horizon max-w-sm mx-auto w-full text-white p-5">
+  <p class="text-center text-3xl" transition:name={`price-${postId}`}>
+    €{priceFormatted}
+  </p>
+  <div class="flex text-lg justify-center gap-8 pt-2">
+    <div transition:name={`bedrooms-${postId}`}>
+      <FontAwesomeIcon icon={faBed} />
+      {bedrooms}
+    </div>
+    <div transition:name={`bathrooms-${postId}`}>
+      <FontAwesomeIcon icon={faBath} />
+      {bathrooms}
+    </div>
+  </div>
+</div>
