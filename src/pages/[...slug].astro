@@ -84,7 +84,7 @@ const postId = data.nodeByUri?.databaseId;
 ---
 
 <html lang="en">
-  <CommonHead title={seo.title || ""} description={seo.metaDesc || ""} />
+  <CommonHead title={seo?.title || ""} description={seo?.metaDesc || ""} />
   <body>
     <BlockRenderer blocks={blocks} postId={postId} />
   </body>
